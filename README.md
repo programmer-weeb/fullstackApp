@@ -5,8 +5,6 @@
 
 ### 2. Create .env File
 
-- duplicate .env.example in backend folder and rename it to .env
-
 ### 3. Setup MongoDB
 
 - Local MongoDB

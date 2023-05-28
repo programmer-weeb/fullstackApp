@@ -168,29 +168,7 @@ export default function SearchScreen() {
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
             <>
-              <Row className="justify-content-between mb-3">
-                <Col md={6}>
-                  <div>
-                    {countProducts === 0 ? 'No' : countProducts} Results
-                    {query !== 'all' && ' : ' + query}
-                    {category !== 'all' && ' : ' + category}
-                    {price !== 'all' && ' : Price ' + price}
-                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                    {query !== 'all' ||
-                    category !== 'all' ||
-                    rating !== 'all' ||
-                    price !== 'all' ? (
-                      <Button
-                        variant="light"
-                        onClick={() => navigate('/search')}
-                      >
-                        <i className="fas fa-times-circle"></i>
-                      </Button>
-                    ) : null}
-                  </div>
-                </Col>
-                
-              </Row>
+              
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}

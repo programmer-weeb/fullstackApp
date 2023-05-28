@@ -6,7 +6,7 @@ import { getError } from '../utils';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Rating from '../components/Rating';
+// import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
@@ -191,7 +191,7 @@ export default function SearchScreen() {
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                   >
-                    <Rating caption={' & up'} rating={r.rating}></Rating>
+                    {/* <Rating caption={' & up'} rating={r.rating}></Rating> */}
                   </Link>
                 </li>
               ))}
@@ -200,7 +200,7 @@ export default function SearchScreen() {
                   to={getFilterUrl({ rating: 'all' })}
                   className={rating === 'all' ? 'text-bold' : ''}
                 >
-                  <Rating caption={' & up'} rating={0}></Rating>
+                  {/* <Rating caption={' & up'} rating={0}></Rating> */}
                 </Link>
               </li>
             </ul>

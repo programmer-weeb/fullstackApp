@@ -71,9 +71,9 @@ export default function SigninScreen() {
           New customer?{' '}
           <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
         </div>
-        <div className="mb-3">
+        {/* <div className="mb-3">
           Forget Password? <Link to={`/forget-password`}>Reset Password</Link>
-        </div>
+        </div> */}
       </Form>
     </Container>
   );

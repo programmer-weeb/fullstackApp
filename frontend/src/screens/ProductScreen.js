@@ -8,7 +8,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import Rating from '../components/Rating';
+// import Rating from '../components/Rating';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -140,10 +140,10 @@ function ProductScreen() {
               <h1>{product.name}</h1>
             </ListGroup.Item>
             <ListGroup.Item>
-              <Rating
+              {/* <Rating
                 rating={product.rating}
                 numReviews={product.numReviews}
-              ></Rating>
+              ></Rating> */}
             </ListGroup.Item>
             <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
@@ -218,13 +218,13 @@ function ProductScreen() {
           {product.reviews.map((review) => (
             <ListGroup.Item key={review._id}>
               <strong>{review.name}</strong>
-              <Rating rating={review.rating} caption=" "></Rating>
+              {/* <Rating rating={review.rating} caption=" "></Rating> */}
               <p>{review.createdAt.substring(0, 10)}</p>
               <p>{review.comment}</p>
             </ListGroup.Item>
           ))}
         </ListGroup>
-        <div className="my-3">
+        {/* <div className="my-3">
           {userInfo ? (
             <form onSubmit={submitHandler}>
               <h2>Write a customer review</h2>
@@ -272,7 +272,7 @@ function ProductScreen() {
               to write a review
             </MessageBox>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -189,20 +189,7 @@ export default function SearchScreen() {
                     ) : null}
                   </div>
                 </Col>
-                <Col className="text-end">
-                  Sort by{' '}
-                  <select
-                    value={order}
-                    onChange={(e) => {
-                      navigate(getFilterUrl({ order: e.target.value }));
-                    }}
-                  >
-                    <option value="newest">Newest Arrivals</option>
-                    <option value="lowest">Price: Low to High</option>
-                    <option value="highest">Price: High to Low</option>
-                    <option value="toprated">Avg. Customer Reviews</option>
-                  </select>
-                </Col>
+                
               </Row>
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>

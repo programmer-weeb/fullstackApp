@@ -1,22 +1,33 @@
-version: '2.1'
-
+version: "3"
 services:
   frontend:
-    build: frontend/.
+    # image: frontend
+    build: ./frontend
+    stdin_open: true
     ports:
       - "3000:3000"
-    depends_on:
-      backend:
-        condition: service_healthy
-    links:
-      - backend
-
+    networks:
+      - mern-app
   backend:
-    build: backend/.
+    # image: backend
+    build: ./backend
     ports:
       - "4000:4000"
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:4000/api/products" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - mongo-data:/data/db
+networks:
+  mern-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local

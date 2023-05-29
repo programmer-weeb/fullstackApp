@@ -107,7 +107,7 @@ export default function ShippingAddressScreen() {
               required
             />
           </Form.Group>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <Button
               id="chooseOnMap"
               type="button"
@@ -124,7 +124,7 @@ export default function ShippingAddressScreen() {
             ) : (
               <div>No location</div>
             )}
-          </div>
+          </div> */}
 
           <div className="mb-3">
             <Button variant="primary" type="submit">

@@ -1,33 +1,32 @@
-version: "3"
+version: '3'
 services:
-  frontend:
-    # image: frontend
-    build: ./frontend
-    stdin_open: true
-    ports:
-      - "3000:3000"
-    networks:
-      - mern-app
   backend:
-    # image: backend
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "4000:4000"
-    networks:
-      - mern-app
+      - 4000:4000
     depends_on:
-      - mongo
-  mongo:
-    image: mongo:3.6.19-xenial
-    ports:
-      - "27017:27017"
+      - database
     networks:
-      - mern-app
-    volumes:
-      - mongo-data:/data/db
+      - app-network
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    networks:
+      - app-network
+  database:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ahmed
+      - MONGO_INITDB_ROOT_PASSWORD=ahmed
+    networks:
+      - app-network
 networks:
-  mern-app:
+  app-network:
     driver: bridge
-volumes:
-  mongo-data:
-    driver: local

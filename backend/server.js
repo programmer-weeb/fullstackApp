@@ -13,6 +13,7 @@ dotenv.config();
 mongoose
   // .connect(process.env.MONGODB_URI)
   .connect('mongodb+srv://ahmed:ahmed@cluster0.7y3i8ap.mongodb.net/?retryWrites=true&w=majority')
+  // .connect('mongodb://ahmed:ahmed@mongo:27017')
   .then(() => {
     console.log("connected to db");
   })
@@ -24,13 +25,6 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.get("/api/keys/paypal", (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || "sb");
-});
-app.get("/api/keys/google", (req, res) => {
-  res.send({ key: process.env.GOOGLE_API_KEY || "" });
-});
 
 app.use("/api/upload", uploadRouter);
 app.use("/api/seed", seedRouter);

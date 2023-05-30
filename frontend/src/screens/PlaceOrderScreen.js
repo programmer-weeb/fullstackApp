@@ -48,7 +48,8 @@ export default function PlaceOrderScreen() {
     navigate('/')
     toast.success('Order placed successfully.');
     ctxDispatch({ type: 'CART_CLEAR' });
-
+    // delete cart from local storage
+    localStorage.removeItem('cartItems');
   };
 
   useEffect(() => {

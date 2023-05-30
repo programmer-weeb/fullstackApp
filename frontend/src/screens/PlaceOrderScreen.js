@@ -46,13 +46,8 @@ export default function PlaceOrderScreen() {
 
   const placeOrderHandler = () => {
     navigate('/')
-    // clear the cart
-    // dispatch(
-    //   { type: 'CART_CLEAR' },
-    //   toast.success('Order placed successfully.')
-
-    // );
     toast.success('Order placed successfully.');
+    ctxDispatch({ type: 'CART_CLEAR' });
 
   };
 
